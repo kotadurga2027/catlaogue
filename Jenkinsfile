@@ -23,7 +23,7 @@ pipeline {
                 steps{
                     script {
                         sh '''
-                            npm install
+                           sudo npm install
                         '''
                     }
                 }
