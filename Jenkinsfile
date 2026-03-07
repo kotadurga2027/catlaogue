@@ -22,9 +22,9 @@ pipeline {
             stage ('dependency installation') {
                 steps{
                     script {
-                        sh """
+                        sh '''
                             npm install
-                        """
+                        '''
                     }
                 }
             }
@@ -32,11 +32,11 @@ pipeline {
             stage ('build') {
                 steps{
                     script {
-                        sh  """
+                        sh  '''
                             print "hello this is build stage"
                             echo 'we will go to write pipeline for catalogue'
 
-                        """
+                        '''
                     }
 
                 }
@@ -45,22 +45,22 @@ pipeline {
             stage ('test') {
                 steps {
                     script {
-                        sh ""
+                        sh '''
                             print "hello this is test stage"
                             echo 'we will go to write pipeline for catalogue'
 
-                        """
+                        '''
                     }
                 }
             }
             stage ('deploy') {
                 steps  {
                     script {
-                        sh """
+                        sh '''
                             print "hello this is deploy stage"
                             echo 'we will go to write pipeline for catalogue'
 
-                        """
+                        '''
 
                     }
 
