@@ -75,4 +75,4 @@ pipeline {
                 echo "pipeline execution is failed"
             }
         }
-    }
+}
