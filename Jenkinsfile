@@ -46,7 +46,7 @@ pipeline {
                 steps {
                     script {
                         sh '''
-                            print "hello this is test stage"
+                            echo "hello this is test stage"
                             echo 'we will go to write pipeline for catalogue'
 
                         '''
@@ -57,7 +57,7 @@ pipeline {
                 steps  {
                     script {
                         sh '''
-                            print "hello this is deploy stage"
+                            echo "hello this is deploy stage"
                             echo 'we will go to write pipeline for catalogue'
 
                         '''
