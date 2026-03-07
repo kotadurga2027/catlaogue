@@ -43,11 +43,8 @@ pipeline {
                         echo 'we will go to write pipeline for catalogue'
 
                         '''
-
                     }
-
                 }
-
             }
             stage ('deploy') {
                 steps  {
