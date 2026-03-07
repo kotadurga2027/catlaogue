@@ -9,7 +9,6 @@ pipeline {
         options{
             disableConcurrentBuilds()
         }
-
         stages {
             stage('Read package.json') {
                 steps {
