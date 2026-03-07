@@ -11,29 +11,16 @@ pipeline {
 
         stages {
             stage('Read package.json') {
-            steps {
-                script {
-                    // Read the file into a Groovy object
-                    def packageJson = readJSON file: 'package.json'
-                    appVersion = packageJson.version
-                    echo "Package Version: ${appVersion}"
-                    }
-                }
-            }
-            stage ('read the package.json') {
-                steps{
+                steps {
                     script {
-                        '''
-                        print "hello this is build stage"
-                        echo 'we will go to write pipeline for catalogue'
-
-                        '''
-
+                        // Read the file into a Groovy object
+                        def packageJson = readJSON file: 'package.json'
+                        appVersion = packageJson.version
+                        echo "Package Version: ${appVersion}"
+                        }
                     }
-
                 }
-
-            }
+            
             stage ('build') {
                 steps{
                     script {
