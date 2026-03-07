@@ -23,7 +23,7 @@ pipeline {
                 steps{
                     script {
                         sh '''
-                           sudo npm install
+                           npm install
                         '''
                     }
                 }
@@ -33,7 +33,7 @@ pipeline {
                 steps{
                     script {
                         sh  '''
-                            print "hello this is build stage"
+                            echo "hello this is build stage"
                             echo 'we will go to write pipeline for catalogue'
 
                         '''
