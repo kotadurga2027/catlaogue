@@ -2,8 +2,9 @@ pipeline {
     agent any
         environment {
              appVersion = ''
-
-    
+        }
+        tools {
+            git 'Default'
         }
         options{
             disableConcurrentBuilds()
