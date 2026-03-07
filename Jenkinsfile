@@ -13,7 +13,6 @@ pipeline {
             stage('Read package.json') {
                 steps {
                     script {
-                        // Read the file into a Groovy object
                         def packageJson = readJSON file: 'package.json'
                         appVersion = packageJson.version
                         echo "Package Version: ${appVersion}"
