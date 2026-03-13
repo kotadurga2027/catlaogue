@@ -2,6 +2,10 @@ pipeline {
     agent any
         environment {
              appVersion = ''
+             REGION = "us-east-1"
+             ACC_ID = "405832638662"
+             PROJECT = "roboshop"
+             COMPONENT = "catalogue"
         }
         tools {
             git 'Default'
@@ -32,9 +36,11 @@ pipeline {
             stage ('build') {
                 steps{
                     script {
+                        withAWS(credentials: 'sam-jenkins-demo-credentials', region: 'us-east-1') {
                         sh  '''
-                            echo "hello this is build stage"
-                            echo 'we will go to write pipeline for catalogue'
+                            aws ecr get-login-password --region ${REGION} | docker login --username AWS --password-stdin ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com              
+                            docker build -t ${PROJECT}-${COMPONENT}:latest ${ACC_ID}.dkr.ecr.us-east-1.amazonaws.com/${PROJECT}-${COMPONENT}:${appVersion}
+                            docker push ${ACC_ID}.dkr.ecr.${REGION}.amazonaws.com/${PROJECT}-${COMPONENT}:${appVersion}
 
                         '''
                     }
@@ -47,7 +53,7 @@ pipeline {
                     script {
                         sh '''
                             echo "hello this is test stage"
-                            echo 'we will go to write pipeline for catalogue'
+                            echo 'we will go to write pipeline for ${COMPONENT}'
 
                         '''
                     }
@@ -58,7 +64,7 @@ pipeline {
                     script {
                         sh '''
                             echo "hello this is deploy stage"
-                            echo 'we will go to write pipeline for catalogue'
+                            echo 'we will go to write pipeline for ${COMPONENT}'
 
                         '''
 
