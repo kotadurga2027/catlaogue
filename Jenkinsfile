@@ -43,10 +43,11 @@ pipeline {
                             docker push ${ACC_ID}.dkr.ecr.${REGION}.amazonaws.com/${PROJECT}-${COMPONENT}:${appVersion}
 
                         '''
+                        }
+
                     }
 
                 }
-
             }
             stage ('test') {
                 steps {
@@ -72,7 +73,6 @@ pipeline {
 
                 }  
             }
-        }
         post {
             success {
                 echo "pipeline execution is sucess"
