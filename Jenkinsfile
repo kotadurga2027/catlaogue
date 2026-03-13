@@ -73,6 +73,7 @@ pipeline {
 
                 }  
             }
+        }
         post {
             success {
                 echo "pipeline execution is sucess"
@@ -83,4 +84,3 @@ pipeline {
         }
 
     }
-}
